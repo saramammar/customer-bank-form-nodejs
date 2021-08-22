@@ -1,0 +1,52 @@
+{{>header}}
+{{>nav}}
+<section class="container my-5">
+    <div class="my-3">
+        <a href="/add" class="btn btn-primary">add</a>
+    </div>
+    <table class="table table-stripped">
+        <thead>
+            <tr class="text-center">
+                <th>Name</th>
+                <th>Accout Number</th>
+                <th>Balance</th>
+                <th>Status</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#if isEmpty}}
+            <tr>
+                <td colspan="5" class="alert alert-danger">no customers to show</td>
+            </tr>
+            {{/if}}
+
+            {{#each allCustomers}}
+            <tr class="text-center">
+                <td>{{this.name}}</td>
+                <td>{{this.accNum}}</td>
+                <td>{{this.balance}}</td>
+                <td>{{this.status}}</td>
+                <td>
+                    <a href="edit/{{this._id}}" class="btn btn-success mx-3">edit</a>
+                    <a href="show/{{this._id}}" class="btn btn-warning mx-3">show</a>
+                    <a href="deposit/{{this._id}}" class="btn btn-warning mx-3">deposit</a>
+                    <a href="withdraw/{{this._id}}" class="btn btn-warning mx-3">withdraw</a>
+                    {{!-- <a href="activation/{{this._id}}" class="btn btn-success mx-3">
+                        {{#if this.status}}
+                            Deactivate
+                        {{/if}}
+                            Activate
+                    </a> --}}
+
+                    <form method="post" action="delete/{{this._id}}" class="d-inline-block">
+
+                        <button class="btn btn-danger mx-3">delete</button>
+                    </form>
+                </td>
+            </tr>
+
+            {{/each}}
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,23 @@
+{{>header}}
+{{>nav}}
+<section class="container my-5">
+    <h3 class="text-primary">Edit Customer</h3>
+<form method="post">
+    <div class="mb-3 ">
+        <input name="name" placeholder="Name" class="form-control" value="{{customer.name}}">
+    </div>
+    <div class="mb-3">
+        <input name="accNum" placeholder="Account number" class="form-control" value="{{customer.accNum}}">
+    </div>
+    <div class="mb-3">
+        <input name="balance" placeholder="Balance" class="form-control" value="{{customer.balance}}">
+    </div>
+
+    <div class="mb-3">
+        <input type="submit" value="Edit customer" class="btn btn-primary">
+    </div>
+</form>
+
+</section>
+
+{{>footer}}
